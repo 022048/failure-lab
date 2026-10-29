@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chem-Investigator: Case 02</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- UI용 추가 스타일 (슬라이더) -->
+    <style>
+        input[type=range] { width: 100%; margin: 10px 0; accent-color: #00ffcc; cursor: pointer; }
+        .warning-text { color: #ff5555; font-weight: bold; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0.5; } }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <div id="ui-layer">
+        <header>
+            <h1>CASE 02 : 공기의 연금술 (1909)</h1>
+            <p>목표: 질소(N₂)와 수소(H₂)를 반응시켜 암모니아(NH₃) 수율 15% 이상을 달성하라.</p>
+        </header>
+
+        <aside class="control-panel">
+            <div class="panel-section">
+                <h3>반응기 상태 (Reactor Status)</h3>
+                <div class="data-readout">
+                    <span>암모니아 수율: </span>
+                    <span id="yield-display" class="highlight">0.0 %</span>
+                </div>
+                <div class="data-readout">
+                    <span>반응 속도: </span>
+                    <span id="rate-display">정지됨</span>
+                </div>
+                <div class="data-readout">
+                    <span>설비 부하: </span>
+                    <span id="risk-display" style="color: #00ffcc;">안전 (SAFE)</span>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>공정 변수 제어 (Process Control)</h3>
+                <label>온도 (Temperature) : <span id="val-temp">200</span> °C</label>
+                <input type="range" id="slider-temp" min="200" max="800" value="200" step="10">
+                
+                <label>압력 (Pressure) : <span id="val-pres">100</span> atm</label>
+                <input type="range" id="slider-pres" min="100" max="400" value="100" step="10">
+            </div>
+
+            <div class="panel-section" id="log-section">
+                <h3>시스템 로그</h3>
+                <ul id="system-log">
+                    <li>[시스템] 촉매 반응기 가동 준비 완료.</li>
+                    <li>[힌트] 온도가 너무 낮으면 반응이 안 일어나고, 너무 높으면 역반응이 일어납니다.</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app2.js"></script>
+</body>
+</html>
