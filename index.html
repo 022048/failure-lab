@@ -1,53 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chem-Investigator: Case 01</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Three.js 및 OrbitControls CDN (서버 없이 바로 실행됨) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CASE FILES — 과학·공정 사건 조사실</title>
+<meta name="description" content="라부아지에의 질량 보존과 하버-보슈법을 3D 현장에서 직접 조사·계산·설계하는 브라우저 게임">
+<meta name="theme-color" content="#0b1016">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./lib/three.module.min.js", "three/addons/": "./lib/addons/" } }
+</script>
 </head>
 <body>
-    <div id="canvas-container"></div>
-    
-    <!-- UI 오버레이 -->
-    <div id="ui-layer">
-        <header>
-            <h1>CASE 01 : 플로지스톤의 모순 (1774)</h1>
-            <p>목표: 주석(Sn) 가열 전후의 질량 수지(Mass Balance)를 규명하라.</p>
-        </header>
-
-        <aside class="control-panel">
-            <div class="panel-section">
-                <h3>센서 데이터 (Sensor Data)</h3>
-                <div class="data-readout">
-                    <span>현재 질량: </span>
-                    <span id="mass-display" class="highlight">250.00 g</span>
-                </div>
-                <div class="data-readout">
-                    <span>용기 상태: </span>
-                    <span id="seal-display">개방됨 (Opened)</span>
-                </div>
-            </div>
-
-            <div class="panel-section">
-                <h3>공정 제어 (Process Control)</h3>
-                <button id="btn-seal">밀폐 밸브 작동 (Toggle Seal)</button>
-                <button id="btn-heat">가열 시작 (Ignite)</button>
-                <button id="btn-reset">초기화 (Reset)</button>
-            </div>
-
-            <div class="panel-section" id="log-section">
-                <h3>시스템 로그</h3>
-                <ul id="system-log">
-                    <li>[시스템] 장비 초기화 완료. 실험을 준비하십시오.</li>
-                </ul>
-            </div>
-        </aside>
-    </div>
-
-    <script src="app.js"></script>
+<div id="stage"></div>
+<div id="labels"></div>
+<div id="ui"></div>
+<div id="loading" class="loading">현장 기록을 불러오는 중…</div>
+<noscript><p style="position:fixed;inset:0;display:grid;place-items:center;color:#ccc">이 게임은 JavaScript가 필요합니다.</p></noscript>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
